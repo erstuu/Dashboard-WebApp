@@ -49,7 +49,7 @@
                             <span class="avatar avatar-sm"
                                   style="background-image: url('<?= base_url('assets/static/avatars/img.png') ?>')"></span>
                             <div class="d-none d-xl-block ps-2">
-                                <div>Ujang Supriatman</div>
+                                <div>Studentdotgg</div>
                                 <div class="mt-1 small text-secondary">Admin Kicau Mania</div>
                             </div>
                         </a>
