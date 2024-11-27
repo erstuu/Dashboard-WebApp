@@ -19,7 +19,7 @@ class Dashboard extends BaseController
     public function index(): string
     {
         $data = [
-            'title' => 'Kicau Mania',
+            'title' => 'Kicau Mania Dashboard',
             'page' => 'dashboard',
             'arrayPeserta' => $this->arrayPeserta
         ];

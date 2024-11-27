@@ -91,7 +91,7 @@
                                     </svg>
                                   </span>
                                     <span class="nav-link-title">
-                                        Data Peserta
+                                        Home
                                     </span>
                                 </a>
                             </li>
@@ -112,7 +112,7 @@
                                     </svg>
                                   </span>
                                     <span class="nav-link-title">
-                                        Data Burung
+                                        Daftar Peserta
                                     </span>
                                 </a>
                             </li>
@@ -126,6 +126,7 @@
         <!-- Start Main Content -->
 
         <?= $this->renderSection('main-content'); ?>
+        <?= $this->renderSection('home-content'); ?>
 
         <!-- End Main Content -->
         <footer class="footer footer-transparent d-print-none">
