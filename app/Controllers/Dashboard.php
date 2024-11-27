@@ -40,7 +40,7 @@ class Dashboard extends BaseController
 
         $this->peserta->savePeserta($data);
 
-        return $this->index();
+        return redirect()->to('/dashboard');
     }
 
     public function detailPeserta(int $id)
