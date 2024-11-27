@@ -2,42 +2,51 @@
 
 namespace App\Controllers;
 
-use App\Models\Biodata;
+use App\Models\Burung;
+use App\Models\Peserta;
 
 class Dashboard extends BaseController
 {
-    protected Biodata $bio;
-    private array $data_diri;
+    protected Peserta $peserta;
+    private array $arrayPeserta;
 
     public function __construct()
     {
-        $this->bio = new Biodata();
-        $this->data_diri = $this->bio->getProfileData();
+        $this->peserta = new Peserta();
+        $this->arrayPeserta = $this->peserta->getAllPeserta();
     }
 
     public function index(): string
     {
         $data = [
-            'title' => 'Biodataku | Informatika UMMI',
+            'title' => 'Kicau Mania',
             'page' => 'dashboard',
-            'dataDiri' => $this->data_diri
+            'arrayPeserta' => $this->arrayPeserta
         ];
 
         return view('dashboard', $data);
     }
 
-    public function tambahData(): string
+    public function savePeserta()
     {
         $data = [
-            'nama' => $this->request->getPost('nama'),
-            'jenis_kelamin' => $this->request->getPost('jenis_kelamin'),
-            'nim' => $this->request->getPost('nim'),
-            'email' => $this->request->getPost('email'),
-            'tahun_masuk' => $this->request->getPost('tahun_masuk'),
+            'nama_pemilik' => $this->request->getPost('nama_pemilik'),
+            'nomor_telepon' => $this->request->getPost('nomor_telepon'),
+            'alamat' => $this->request->getPost('alamat'),
+            'tanggal_daftar' => $this->request->getPost('tanggal_daftar'),
+            'nama_burung' => $this->request->getPost('nama_burung'),
+            'jenis_burung' => $this->request->getPost('jenis_burung'),
         ];
 
-        $this->bio->tambahData($data);
+        $this->peserta->savePeserta($data);
 
         return $this->index();
+    }
+
+    public function detailPeserta(int $id)
+    {
+        $detailPeserta = $this->peserta->getDetailPeserta($id);
+
+        return $this->response->setJSON($detailPeserta);
     }
 }
