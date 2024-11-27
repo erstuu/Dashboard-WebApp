@@ -7,3 +7,5 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('dashboard', 'Dashboard::index');
+$routes->post('savePeserta', 'Dashboard::savePeserta');
+$routes->get('detailPeserta/(:num)', 'Dashboard::detailPeserta/$1');
